@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Peripheric IO Module/1.0.0": {
+        "runtime": {
+          "Peripheric IO Module.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Peripheric IO Module/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
