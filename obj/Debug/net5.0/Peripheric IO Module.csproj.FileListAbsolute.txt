@@ -1,0 +1,18 @@
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripheric IO Module.exe
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripheric IO Module.deps.json
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripheric IO Module.runtimeconfig.json
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripheric IO Module.runtimeconfig.dev.json
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripheric IO Module.dll
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\ref\Peripheric IO Module.dll
+D:\Diverse\Printer3.0\Printer\bin\Debug\net5.0\Peripheric IO Module.pdb
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Interop.IWshRuntimeLibrary.dll
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.csproj.ResolveComReference.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.GeneratedMSBuildEditorConfig.editorconfig
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.AssemblyInfoInputs.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.AssemblyInfo.cs
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.csproj.CoreCompileInputs.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.dll
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\ref\Peripheric IO Module.dll
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.pdb
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.genruntimeconfig.cache
+D:\Diverse\Printer3.0\Printer\obj\Debug\net5.0\Peripheric IO Module.csproj.AssemblyReference.cache
